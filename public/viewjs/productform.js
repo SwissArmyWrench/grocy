@@ -450,6 +450,14 @@ if (Grocy.EditMode == "create" && GetUriParam("copy-of") != undefined)
 				$("#auto_reprint_stock_label").prop("checked", true);
 			}
 			$("#default_stock_label_type").val(sourceProduct.default_stock_label_type);
+			if (BoolVal(sourceProduct.move_on_open))
+			{
+				$("#move_on_open").prop("checked", true);
+			}
+			if (BoolVal(sourceProduct.treat_opened_as_out_of_stock))
+			{
+				$("#treat_opened_as_out_of_stock").prop("checked", true);
+			}
 
 			Grocy.FrontendHelpers.ValidateForm('product-form');
 		},

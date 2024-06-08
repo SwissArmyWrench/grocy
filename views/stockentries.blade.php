@@ -152,7 +152,7 @@
 								@if(GROCY_FEATURE_FLAG_SHOPPINGLIST)
 								<a class="dropdown-item show-as-dialog-link"
 									type="button"
-									href="{{ $U('/shoppinglistitem/new?embedded&updateexistingproduct&product=' . $stockEntry->product_id ) }}">
+									href="{{ $U('/shoppinglistitem/new?embedded&updateexistingproduct&list=1&product=' . $stockEntry->product_id ) }}">
 									<i class="fa-solid fa-shopping-cart"></i> {{ $__t('Add to shopping list') }}
 								</a>
 								<div class="dropdown-divider"></div>
@@ -188,7 +188,7 @@
 									data-stock-id="{{ $stockEntry->stock_id }}"
 									data-stockrow-id="{{ $stockEntry->id }}"
 									data-location-id="{{ $stockEntry->location_id }}"
-									data-consume-amount="1">
+									data-consume-amount="{{ $stockEntry->amount }}">
 									{{ $__t('Consume this stock entry as spoiled', '1 ' . FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->name) }}
 								</a>
 								@if(GROCY_FEATURE_FLAG_RECIPES)
